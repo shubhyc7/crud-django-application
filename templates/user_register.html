@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <title>Django 3 CRUD Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/static/css/custom.css"> -->
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+
+<body>
+
+  <div class="container text-center">
+      <main class="form-horizontal">
+        <form method="post" action="">
+          <img class="mb-4" src="/static/img/bootstrap-logo.svg" alt="" width="72" height="57">
+          <h1 class="h3 mb-3 fw-normal">Custom User Registration</h1>
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Email:</label>
+            <div class="col-sm-4">
+              {{form.email}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Username:</label>
+            <div class="col-sm-4">
+              {{form.username}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Password:</label>
+            <div class="col-sm-4">
+            {{form.password1}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Confirm Password:</label>
+            <div class="col-sm-4">
+              {{form.password2}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+          </div>
+
+          {% for message in messages %}
+          <div class="alert alert-warning" role="alert" style="margin-top:10px;">
+            <strong>{{ message }} {{username }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          {% endfor %}
+
+        </form>
+      </main>
+
+  </div>
+</body>
+
+</html>

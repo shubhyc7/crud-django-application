@@ -1,0 +1,65 @@
+{% extends 'header.html' %} {% block content %}
+<div class="user-dashboard">
+  <h1>Crud_django Edit</h1>
+  <div class="text-right" style="margin-bottom: 10px">
+    <a href="/crud_django" class="btn btn-primary btn-sm"> Crud_django List </a>
+  </div>
+</div>
+<div class="col-md-8">
+  <form action="" method="POST" role="form" name="frmActionSubmit" id="frmActionSubmit" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="product_name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
+        value="{{result.name}}" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" placeholder="Enter Description"
+        rows="3" value="{{result.description}}" required>{{result.description }} {{ result.is_active }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="" class="form-label mb-3">Image</label>
+        <input type="file" name="image" class="form-control mb-3">
+        {% if result.image %}
+        <img src="/crud_django/media/{{ result.image }}" alt="" width="75" height="75">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="is_active" name="is_active" value="1" {% if result.is_active == 1 %} checked {% endif %}>
+      <label class="form-check-label" for="is_active">Is Active</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+<script>
+  $("#frmActionSubmit").validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      description: {
+        required: true,
+      },
+    },
+
+    messages: {
+      product_name: "Please Enter Product Name.",
+      description: "Please Enter Description.",
+    },
+  });
+</script>
+
+{% endblock %}

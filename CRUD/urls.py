@@ -1,0 +1,29 @@
+"""CRUD URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import include, path
+from Custom_user import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('login.urls')),
+    path('products/', include('products.urls')),
+    path('products_ajax/', include('products_ajax.urls')),
+    path('crud_django/', include('crud_django.urls')),
+    path('crud_django_ajax/', include('crud_django_ajax.urls')),
+    path('userRegistration', views.userRegistration, name='userRegistration'),
+    path('userloginAction', views.userloginAction, name='userloginAction'),
+]
