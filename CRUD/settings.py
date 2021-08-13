@@ -143,14 +143,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+MEDIA_SERVER_URL = 'https://crud-django-application.herokuapp.com' 
+MEDIA_URL = os.path.join(MEDIA_SERVER_URL, 'media/')
 
 if DEBUG:
  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 else:
  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
