@@ -139,14 +139,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # add this line here
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # add this line here
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('static',)
+# MEDIA_SERVER_URL = 'https://crud-django-application.herokuapp.com' 
+# MEDIA_URL = os.path.join(MEDIA_SERVER_URL, 'media/')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if DEBUG:
+ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+else:
+ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL =  '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
