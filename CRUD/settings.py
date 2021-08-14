@@ -143,7 +143,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_SERVER_URL = 'https://crud-django-application.herokuapp.com' 
+# MEDIA_SERVER_URL = 'https://crud-django-application.herokuapp.com' 
 MEDIA_URL = os.path.join(MEDIA_SERVER_URL, 'media/')
 
 if DEBUG:
@@ -151,8 +151,8 @@ if DEBUG:
 else:
  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
